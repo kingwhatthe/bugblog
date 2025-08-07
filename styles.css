@@ -114,3 +114,95 @@ div{
     font-size: 30px;
     font-weight: bold;
 }
+.home-page-container{
+    background-color: rgb(132, 219, 149);
+}
+.content{
+    display: flex;
+    width: 100%;
+}
+.top-nav{
+    position: sticky;
+    display: flex;
+    /* overflow:hidden; */
+    top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(122, 181, 76);
+}
+.top-nav a{
+    float: left;
+    padding: 20px 40px;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(122, 181, 76);
+}
+.top-nav a:hover{
+    background-color: rgb(190, 235, 192);
+}
+.post-of-week{
+    display:flex;
+    background-color: rgb(183, 188, 49);
+    width:50%;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.post-of-week img{
+    width: 100%;
+    border-radius: 20px;
+}
+.pow-footer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+.top-ranked,
+.recents
+{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction:column;
+    background-color: white;
+    margin-top: 20px;
+    overflow-x: hidden;
+}
+.scroll{
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+/* .scroll:hover{
+    scrollbar-width:auto;
+} */
+.post{
+    min-width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: blue;
+    border-radius: 10px;
+}
+.footer{
+    width: 100%;
+    background-color: green;
+    padding: 50px;
+    margin-top: 20px;
+}

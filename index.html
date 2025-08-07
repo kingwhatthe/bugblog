@@ -2,47 +2,55 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Insect Orders Quiz</title>
+    <title>Elite Bug Blog</title>
     <link rel="stylesheet" href="./styles.css">
-    <!-- Load jQuery first -->
-  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="module" src ="./quiz.js"></script>
+    <script type="module" src ="./landingPage.js"></script>
 </head>
 <body>
-    <div class = "container">
-        <div class = "quiz-info">
-            <h2>
-                Insect Orders Quiz!
-            </h2>
-            <p>
-                Welcome to the Insect Orders Quiz! 
-                In this quiz, you will be shown random pictures of insects
-                and have to guess which taxonomical order they are in (i.e. Coleoptera, hymenoptera, etc).
-                Have fun! (or die trying >:))
-            </p>
-            <div class = "progress">
-                Question 2/20
-            </div>
-        </div>
-        <div class = "image-interactable">
-            <div class = "correct-marker"></div>
-            <button><</button>
-            <div class = "image-container">
+    <div class="home-page-container">
+        <nav class="top-nav">
+            <a href = "">Logo</a>
+            <a href = "">Search</a>
+            <a href = "">Request Post</a>
+            <a href = "./quiz.html">Quiz</a>
+            <a href = "">About</a>
+        </nav>
+        <div class = "content">
+            <div class="post-of-week">
+                <h2>Post of the week</h2>
                 <img src="./imgs/coleoptera1.jpg" alt="">
+                <div class = "pow-footer">
+                    <p class = "author">Author</p>
+                    <p class = "order">Order</p>
+                    <p class = "rank">Rank</p>
+                    <p class = "location">Location</p>
+                </div>
             </div>
-            <button>></button>
+            <div class="top-ranked">
+                Top Ranked: 
+                <div class = "scroll">
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                </div>
+            </div>
+            <div class="recents">
+                Recents
+                <div class = "scroll">
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                    <div class = "post">This is a Post</div>
+                </div>
+            </div>
         </div>
-        <div class = "answer-container">
-            <form id = "order-guess" action="">
-                <label for="order">
-                    The order of the insect in this photo is 
-                </label>
-                <input class = "text-input" type="text" placeholder ="insert order..." order = "order">
-                <input class = "check-button" type="submit" value="Check">
-
-            </form>
+        <div class="footer">
+            FOOTER
         </div>
-
     </div>
 </body>
 </html>
