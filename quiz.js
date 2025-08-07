@@ -1,4 +1,5 @@
 
+//Gets the question data for a given id (order, file location (url))
 const getQuestionByID = (id) =>{
     return new Promise((resolve, reject)=>{
         $.ajax({
@@ -16,6 +17,7 @@ const getQuestionByID = (id) =>{
     });
     
 }
+//Gets the number of questions in the quiz_questions table
 const getNumQuestions = async () => {
     const response = await fetch('getQuizQuestions.php');
     const num = await response.json();
@@ -29,12 +31,13 @@ const getQuestionInfo = async (func, num) => {
 // getQuestionInfo(getNumQuestions);
 // getQuestionInfo(getQuestionByID,2);
 
+//Gets a random number between 1 and length
 const getRandomImageId = (length) => {
     return Math.ceil(Math.random() * length);
 }
 // console.log(randomImageId(10));
 
-
+//Checks if dom is loaded
 document.addEventListener("readystatechange",(event)=>{
     if(event.target.readyState === "complete"){
         console.log("readyState: complete");
@@ -71,31 +74,30 @@ const initQuiz=()=>{
         }
 
         //initiate progress bar
-        const questionProgressContainer = document.getElementsByClassName("progress");
-        questionProgressContainer[0].textContent = `Question 1/${questions.length}`;
+        const questionProgressContainer = document.querySelector(".progress");
+        questionProgressContainer.textContent = `Question 1/${questions.length}`;
 
         let questionNumber = 0;
-        let checkCount = numQuestions;
 
-        //Display the order in order
+        //Display the first question
         //updates DOM
-        const displayImage = document.getElementsByClassName("image-container");
-        displayImage[0].innerHTML = `<img src="${questions[questionNumber].url}">`
+        const displayImage = document.querySelector(".image-container");
+        displayImage.innerHTML = `<img src="${questions[questionNumber].url}">`
 
         //Gets guess from DOM
         const orderGuess = document.getElementById("order-guess");
-        const submitButton = orderGuess.getElementsByClassName("check-button");
-        const input = orderGuess.getElementsByClassName("text-input");
-        const correctMarker = document.getElementsByClassName("correct-marker")[0];
+        const submitButton = orderGuess.querySelector(".check-button");
+        const input = orderGuess.querySelector(".text-input");
+        const correctMarker = document.querySelector(".correct-marker");
 
 
 
         //Processes Guess
         orderGuess.addEventListener("submit", (event)=>{
             event.preventDefault();
-            if (input[0].value !== ""){
+            if (input.value !== ""){
                 //filter input
-                const answer = input[0].value.toLowerCase();
+                const answer = input.value.toLowerCase();
                 if(answer === questions[questionNumber].order_name){
                     questions[questionNumber].correct = "true";
                     correctMarker.textContent = "Correct!";
@@ -106,12 +108,23 @@ const initQuiz=()=>{
                     correctMarker.textContent = "Incorrect!";
                     correctMarker.style.backgroundColor = "rgba(255, 0, 0, 1)"
                 }
-                submitButton[0].disabled = true;
+                submitButton.disabled = true;
                 console.log(questions[questionNumber].order_name);
             }
             
             
         });
+
+        const updateDom = () => {
+            //updates DOM
+            displayImage.innerHTML = `<img src="${questions[questionNumber].url}">`;
+            questionProgressContainer.textContent = `Question ${questionNumber+1}/${questions.length}`;
+            questions[questionNumber].correct !== "none" ?
+            submitButton.disabled = true : submitButton.disabled = false;
+            input.value = "";
+            correctMarker.textContent = "";
+            correctMarker.style.backgroundColor = "rgba(0, 0, 0, 0)"
+        }
 
         //allow the incrementor to move
         // index 0 is left index 1 is right
@@ -119,29 +132,13 @@ const initQuiz=()=>{
         //Process left click
         arrows[0].addEventListener("click", (event)=>{
             questionNumber === 0 ? questionNumber : questionNumber--;
-            //updates DOM
-            const displayImage = document.getElementsByClassName("image-container");
-            displayImage[0].innerHTML = `<img src="${questions[questionNumber].url}">`
-            questionProgressContainer[0].textContent = `Question ${questionNumber+1}/${questions.length}`;
-            questions[questionNumber].correct !== "none" ?
-            submitButton[0].disabled = true : submitButton[0].disabled = false;
-            input[0].value = "";
-            correctMarker.textContent = "";
-            correctMarker.style.backgroundColor = "rgba(0, 0, 0, 0)"
+            updateDom();
 
         });
         //Process right click
         arrows[1].addEventListener("click", (event)=>{
             questionNumber === numQuestions-1 ? questionNumber : questionNumber++;
-            //updates DOM
-            const displayImage = document.getElementsByClassName("image-container");
-            displayImage[0].innerHTML = `<img src="${questions[questionNumber].url}">`;
-            questionProgressContainer[0].textContent = `Question ${questionNumber+1}/${questions.length}`;
-            questions[questionNumber].correct !== "none" ?
-            submitButton[0].disabled = true : submitButton[0].disabled = false;
-            input[0].value = "";
-            correctMarker.textContent = "";
-            correctMarker.style.backgroundColor = "rgba(0, 0, 0, 0)"
+            updateDom();
 
         });
     }
