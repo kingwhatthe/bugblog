@@ -14,7 +14,8 @@
     header("Content-Type: application/json");
 
     if(isset($_POST['id'])){
-        $sql = "SELECT * FROM quiz_questions WHERE id = 1";
+        $id = intval($_POST['id']);
+        $sql = "SELECT * FROM quiz_questions WHERE id = $id";
         $run = mysqli_query($conn, $sql);
 
         while($row = mysqli_fetch_array($run)){
