@@ -30,6 +30,9 @@
             $row = mysqli_fetch_array($run);
             echo json_encode($row[0]);
         }
+        else{
+            echo json_encode(["error" => "Query failed"]);
+        }
         // echo json_encode('HI');
     }
     
