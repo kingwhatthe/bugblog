@@ -2,6 +2,7 @@
     header("Content-type: application/json");
     $conn = mysqli_connect("localhost","root","","bug_blog");
     $ranked = [];
+    $recents = [];
 
     if($conn->connect_error){
         http_response_code(500);
@@ -19,7 +20,20 @@
         while($row = mysqli_fetch_assoc($run)){
             $ranked[]=$row;
         }
-        echo json_encode($ranked);
+    }
+    else{
+        echo json_encode(["error" => "Query failed"]);
+    }
+
+    $sqli = "SELECT * FROM post ORDER BY date_posted DESC LIMIT 10";
+    $run = mysqli_query($conn, $sqli);
+
+    if($run){
+        while($row = mysqli_fetch_assoc($run)){
+            $recents[]=$row;
+        }
+        echo json_encode(["ranked" => $ranked,
+                            "recents" => $recents]);
     }
     else{
         echo json_encode(["error" => "Query failed"]);
