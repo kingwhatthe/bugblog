@@ -191,14 +191,32 @@ div{
     scrollbar-width:auto;
 } */
 .post{
+    position: relative;
     min-width: 200px;
     height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
+    display: inline-block;
     background-color: blue;
     border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+}
+.post img{
+    width:100%;
+    height:auto;
+    display: block;
+
+}
+.overlay-text{
+    position:absolute;
+    bottom:0;
+    justify-content: space-between;
+    padding: 3px 10px 3px 10px;
+    color: white;
+    flex-direction: row;
+    width: 100%;
+    text-align: center;
+    font-size: 10pt;
+    background-color: rgba(0,0,0,0.6);
 }
 .footer{
     width: 100%;
