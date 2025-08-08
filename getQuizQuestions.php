@@ -33,7 +33,6 @@
         else{
             echo json_encode(["error" => "Query failed"]);
         }
-        // echo json_encode('HI');
     }
     
     

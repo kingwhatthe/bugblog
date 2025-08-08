@@ -118,7 +118,6 @@ div{
     background-color: rgb(132, 219, 149);
 }
 .content{
-    display: flex;
     width: 100%;
 }
 .top-nav{
@@ -143,7 +142,6 @@ div{
     background-color: rgb(190, 235, 192);
 }
 .post-of-week{
-    display:flex;
     background-color: rgb(183, 188, 49);
     width:50%;
     flex-direction: column;
@@ -158,17 +156,16 @@ div{
 }
 .pow-footer{
     width: 100%;
-    display:flex;
     align-items: left;
     flex-direction: row;
     justify-content: space-between;
     gap: 30px;
+    margin-top: 10px;
 }
 .top-ranked,
 .recents
 {
     width: 90%;
-    display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction:column;
@@ -177,7 +174,6 @@ div{
     overflow-x: hidden;
 }
 .scroll{
-    display: flex;
     width: 100%;
     max-width: 100%;
     align-items: center;
@@ -189,9 +185,6 @@ div{
     scroll-behavior: smooth;
     scrollbar-width: none;
 }
-/* .scroll:hover{
-    scrollbar-width:auto;
-} */
 .post{
     position: relative;
     width: 200px;

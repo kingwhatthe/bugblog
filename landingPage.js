@@ -1,7 +1,3 @@
-// fetch('./homePagePosts.php')
-//   .then(res => res.json())
-//   .then(data => console.log(data));
-// console.log("Javascript is working?");
 
 const getPostByID = (id) => {
   return new Promise((resolve, reject)=>{
@@ -20,6 +16,7 @@ const getPostByID = (id) => {
     });
 }
 
+//returns the order from taxonomical string data
 const getOrderFromTax = (tax) =>{
     //regex to get order
     const pattern = /(?:.*, )?(\w+)$/;
@@ -33,6 +30,7 @@ document.addEventListener("readystatechange", (event) => {
   }
 });
 const initHomePage =() => {
+  //Loads the Post of the Week (decided by id)
   const loadPOW = async (id) =>{
     //get pow data
     const powData = await getPostByID(id);
@@ -55,6 +53,7 @@ const initHomePage =() => {
     location.textContent = powData.location;
 
   }
+  //Load ranked and recent posts for landingPage
   const loadPosts = async () =>{
     //get the data
     const response = await fetch('./homePagePosts.php');
@@ -68,7 +67,6 @@ const initHomePage =() => {
     const rankedScrollContainer = rankedContainer.querySelector(".scroll");
     const recentsContainer = document.querySelector('.recents')
     const recentsScrollContainer = recentsContainer.querySelector(".scroll");
-
 
 
     //loop through data and display posts
@@ -107,60 +105,21 @@ const initHomePage =() => {
 
   }
   loadPosts();
+  //Post of the week is #2
   loadPOW(2);
   const scrollContainers = document.querySelectorAll(".scroll");
 
-  scrollContainers[0].addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    
-    if (evt.deltaY >= -15 && evt.deltaY <= 15) {
-    scrollContainers[0].scrollLeft += (evt.deltaY * 40);}
-    
-    else {
-        scrollContainers[0].scrollLeft += (evt.deltaY * 5);
-    }
-});
-scrollContainers[1].addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    
-    if (evt.deltaY >= -15 && evt.deltaY <= 15) {
-    scrollContainers[1].scrollLeft += (evt.deltaY * 40);}
-    
-    else {
-        scrollContainers[1].scrollLeft += (evt.deltaY * 5);
-    }
-});
-// const scrollContainer = document.querySelector(".scroll");
-// let isScrolling = false;
-// let scrollTimeout;
-// let total_movement = 0;
-
-// scrollContainer.addEventListener("wheel", (evt) => {
-//   // If this is the first scroll in a while, mark as scrolling
-//   evt.preventDefault();
-//   if (!isScrolling) {
-//     isScrolling = true;
-//     console.log("Scrolling started");
-//     // You could also add a CSS class here
-//     // scrollContainer.classList.add("is-scrolling");
-
-    
-//     if (evt.deltaY >= -15 && evt.deltaY <= 15) {
-//     scrollContainer.scrollLeft += (evt.deltaY * 40) + total_movement;}
-    
-//     else {
-//         scrollContainer.scrollLeft += (evt.deltaY * 5) + total_movement;
-//     }
-//   }
-//   total_movement += evt.deltaY;
-//   // Clear the previous timeout
-//   clearTimeout(scrollTimeout);
-
-//   // Set a new timeout to detect scroll end
-//   scrollTimeout = setTimeout(() => {
-//     isScrolling = false;
-//     console.log("Scrolling stopped");
-//     // scrollContainer.classList.remove("is-scrolling");
-//   }, 100); // Adjust delay if needed
-// });
+  //Creates event listeners for both scroll containers
+  for (let i = 0; i<scrollContainers.length; i++){
+    scrollContainers[i].addEventListener("wheel", (evt) => {
+      evt.preventDefault();
+      
+      if (evt.deltaY >= -15 && evt.deltaY <= 15) {
+        scrollContainers[i].scrollLeft += (evt.deltaY * 40);
+      } 
+      else {
+          scrollContainers[i].scrollLeft += (evt.deltaY * 5);
+      }
+    });
+  }
 }
