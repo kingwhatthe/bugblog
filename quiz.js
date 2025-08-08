@@ -1,6 +1,6 @@
 
 //Gets the question data for a given id (order, file location (url))
-const getQuestionByID = (id) =>{
+export const getQuestionByID = (id) =>{
     return new Promise((resolve, reject)=>{
         $.ajax({
             url: './getQuizQuestions.php',
