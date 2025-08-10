@@ -302,3 +302,52 @@ div{
     background-color: rgb(59, 158, 137);
     color: white
 }
+.search-post-container{
+    justify-content: flex-start;
+    width: 90%;
+    gap: 20px;
+}
+/* Search Post Styling */
+.search-post{
+    flex-direction: row;
+    width: inherit;
+    height: 175px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.search-post:hover{
+    cursor: pointer;
+}
+.search-post-desc, 
+.info-row{
+    background-color: gray;
+    flex-direction: row;
+    padding:10px;
+    justify-content: space-between;
+    width: 100%;
+}
+.search-post-desc{
+    height: inherit;
+    width: inherit;
+    justify-content: space-between;
+}
+.info{
+    height: inherit;
+    width: inherit;
+    justify-content: space-between;
+}
+.info-row{
+    align-items: center;
+    justify-content: space-between;
+}
+.search-post img{
+    height: inherit;
+    width: auto;
+}
+.rank{
+    background-color: yellow;
+    padding:10px 17px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20pt;
+}
