@@ -92,13 +92,11 @@ div{
     padding: 5px;
     border-radius: 5px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0,0.2);
-    transition-property: background-color font-size padding;
+    transition-property: background-color;
     transition-duration: 0.2s;
 }
 .answer-container .check-button:hover{
     background-color: rgb(160, 240, 160);
-    font-size: 21px;
-    margin: -1px -1.5px -1px -1.5px;
 }
 .answer-container .check-button:disabled{
     background-color: rgb(100, 129, 100);
@@ -219,4 +217,67 @@ div{
     background-color: green;
     padding: 50px;
     margin-top: 20px;
+}
+.search-container,
+.search-bar{
+    flex-direction: row;
+}
+
+.search-container{
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.search-bar{
+    flex-direction: row;
+}
+.search-input{
+    background-color: rgb(170, 206, 176);
+    border: none;
+    font-size: 16pt;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0,0.2);
+}
+.search-input:focus{
+    outline:none;
+    box-shadow: 3px 3px 10px rgba(33, 62, 227, 0.9);
+}
+.drop-down-button-container:hover .drop-down-button-hover{
+    display: flex;
+}
+.drop-down-button-container:hover .drop-down-button-default{
+    display: none;
+}
+.drop-down-button-container .drop-down-button-hover{
+    display: none;
+}
+.drop-down-button-default{
+    position: absolute;
+    z-index: 999;
+    top: 58px;
+}
+.drop-down-button-default,
+.drop-down-button{
+    padding:5px;
+    border: none;
+    min-width: 100px;
+    font-size: 16pt;
+    background-color: rgb(52, 108, 90);
+}
+.drop-down-button-hover{
+    position: absolute;
+    z-index: 999;
+    top: 58px;
+}
+.drop-down-button{
+    transition-property: background-color;
+    transition-duration: 0.25s;
+}
+.drop-down-button:hover{
+    cursor: pointer;
+    background-color: rgb(155, 233, 229);
+}
+.drop-down-button:active{
+    background-color: rgb(114, 226, 136);
 }

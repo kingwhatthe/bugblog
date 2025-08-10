@@ -10,22 +10,36 @@
 <body>
     <div class="home-page-container">
         <nav class="top-nav">
-            <a href = "">Logo</a>
-            <a href = "">Search</a>
+            <a href = "./index.html">Logo</a>
+            <a href = "./search.html">Search</a>
             <a href = "">Request Post</a>
             <a href = "./quiz.html">Quiz</a>
             <a href = "">About</a>
         </nav>
         <div class = "content">
-            <div class="post-of-week">
-                <h2>Post of the week</h2>
-                <img src="" alt="Post of the Week">
-                <div class = "pow-footer">
-                    <p class = "author">Author</p>
-                    <p class = "order">Order</p>
-                    <p class = "rank">Rank</p>
-                    <p class = "location">Location</p>
+            <div class = "search-container">
+                <div class = "search-bar">
+                    <input class = "search-input" type="search" placeholder ="Search..." query = "query">
+                    <div class = "drop-down-button-container">
+                        <div class = "drop-down-button-default">
+                            Filter
+                        </div>
+                        <div class = "drop-down-button-hover">
+                            <input class = "drop-down-button" type="button" value="Filter">
+                            <input class = "drop-down-button" type="button" value="Order">
+                            <input class = "drop-down-button" type="button" value="Author">
+                            <input class = "drop-down-button" type="button" value="Location">
+                            
+                        </div>
+                    </div>
+                    
                 </div>
+                <form id = "search-filters" class = "filter-buttons" action="">
+                    <input class = "check-button" type="submit" value="New">
+                    <input class = "check-button" type="submit" value="Old">
+                    <input class = "check-button" type="submit" value="Rank (decending)">
+                    <input class = "check-button" type="submit" value="Rank (ascending)">
+                </form>
             </div>
         </div>
         <div class="footer">
