@@ -1,4 +1,4 @@
-import {getOrderFromTax} from "./landingPage.js";
+import {getOrderFromTax} from "./functions.js";
 
 const getPostsBySearch = (query, searchBy, sortBy) =>{
     return new Promise((resolve, reject)=>{

@@ -117,6 +117,7 @@ div{
 }
 .content{
     width: 100%;
+    margin:0;
 }
 .top-nav{
     position: sticky;
@@ -226,7 +227,6 @@ div{
 .search-container{
     width: 100%;
     justify-content: space-between;
-    align-items: center;
     padding: 40px;
     gap: 50px;
 }
@@ -304,6 +304,8 @@ div{
 }
 .search-post-container{
     justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 57vh;
     width: 90%;
     gap: 20px;
 }
@@ -350,4 +352,11 @@ div{
     border-radius: 10px;
     font-weight: bold;
     font-size: 20pt;
+}
+.post-info{
+    flex-direction: row;
+    width: 100%;
+}
+.post-info img{
+    width: 80%;
 }
