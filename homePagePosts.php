@@ -1,8 +1,10 @@
 <?php
-    header("Content-type: application/json");
+
     $conn = mysqli_connect("localhost","root","","bug_blog");
     $ranked = [];
     $recents = [];
+
+    header("Content-type: application/json");
 
     if($conn->connect_error){
         http_response_code(500);

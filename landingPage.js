@@ -17,11 +17,12 @@ const getPostByID = (id) => {
 }
 
 //returns the order from taxonomical string data
-const getOrderFromTax = (tax) =>{
+export const getOrderFromTax = (tax) =>{
     //regex to get order
     const pattern = /(?:.*, )?(\w+)$/;
     return tax.match(pattern)[1];
 }
+
 
 document.addEventListener("readystatechange", (event) => {
   if(event.target.readyState === "complete"){
