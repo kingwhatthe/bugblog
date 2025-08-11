@@ -1,41 +1,5 @@
+import { getNumQuestions, getQuestionByID, getRandomImageId } from "./functions";
 
-//Gets the question data for a given id (order, file location (url))
-export const getQuestionByID = (id) =>{
-    return new Promise((resolve, reject)=>{
-        $.ajax({
-            url: './getQuizQuestions.php',
-            type: 'POST',
-            data: {id:id},
-            success: (data) => {
-                console.log("Received for ID", id, ":", data);
-                resolve(data);
-            },
-            error: (xhr, status, error) => {
-                reject(error);
-            }
-        });
-    });
-    
-}
-//Gets the number of questions in the quiz_questions table
-const getNumQuestions = async () => {
-    const response = await fetch('getQuizQuestions.php');
-    const num = await response.json();
-    return num;
-}
-const getQuestionInfo = async (func, num) => {
-    const info = await func(num);
-    console.log(info);
-}
-
-// getQuestionInfo(getNumQuestions);
-// getQuestionInfo(getQuestionByID,2);
-
-//Gets a random number between 1 and length
-const getRandomImageId = (length) => {
-    return Math.ceil(Math.random() * length);
-}
-// console.log(randomImageId(10));
 
 //Checks if dom is loaded
 document.addEventListener("readystatechange",(event)=>{

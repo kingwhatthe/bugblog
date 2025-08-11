@@ -1,27 +1,4 @@
-
-const getPostByID = (id) => {
-  return new Promise((resolve, reject)=>{
-        $.ajax({
-            url: './homePagePosts.php',
-            type: 'POST',
-            data: {id:id},
-            success: (data) => {
-                console.log("Received for ID", id, ":", data);
-                resolve(data);
-            },
-            error: (xhr, status, error) => {
-                reject(error);
-            }
-        });
-    });
-}
-
-//returns the order from taxonomical string data
-export const getOrderFromTax = (tax) =>{
-    //regex to get order
-    const pattern = /(?:.*, )?(\w+)$/;
-    return tax.match(pattern)[1];
-}
+import { getOrderFromTax, getPostByID } from "./functions.js";
 
 
 document.addEventListener("readystatechange", (event) => {
