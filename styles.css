@@ -8,7 +8,6 @@
 html,
 body
 {
-    height: 150vh;
     width: 100%;
 }
 div{
@@ -117,7 +116,7 @@ div{
     width: 100%;
     margin:0;
     height: 100%;
-    margin-top: 160px;
+    /* margin-top: 160px; */
     justify-content: flex-start;
 }
 .quiz-content{
@@ -239,7 +238,11 @@ div{
     padding: 50px;
     margin-top: 20px;
 }
+.search-body{
+    height: 100%;
+}
 .search-content{
+    min-height: 200vh;
     margin-top: 0;
 }
 .search-container,
@@ -328,7 +331,6 @@ div{
 .search-post-container{
     justify-content: flex-start;
     align-items: flex-start;
-    min-height: 57vh;
     width: 90%;
     gap: 20px;
 }

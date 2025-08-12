@@ -56,7 +56,7 @@ const searchPosts = async () => {
 
     searchBar.addEventListener("input", async (event)=>{
         console.log(currentSelection + " " + searchBar.value);
-
+        posts.innerHTML = "";
         //get the post data
         const postData = await getPostsBySearch(searchBar.value,currentSelection.toLowerCase(),"date_posted");
         !postData[0] || postData[0].length === 0 ? console.log("nothing found") : console.log("something found");
@@ -64,7 +64,6 @@ const searchPosts = async () => {
 
         //update dom with post data
         for (let i = 0; i<postData.length; i++){
-            posts.innerHTML = "";
             posts.innerHTML += `<div id = "post_${postData[i].id}" class = "search-post">
                     <img src="${postData[i].picture_url}" alt="">
                     <div class ="search-post-desc">
