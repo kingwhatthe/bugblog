@@ -9,40 +9,66 @@
     <script type="module" src ="./quiz.js"></script>
 </head>
 <body>
-    <div class = "container">
-        <div class = "quiz-info">
-            <h2>
-                Insect Orders Quiz!
-            </h2>
-            <p>
-                Welcome to the Insect Orders Quiz! 
-                In this quiz, you will be shown random pictures of insects
-                and have to guess which taxonomical order they are in (i.e. Coleoptera, hymenoptera, etc).
-                Have fun! (or die trying >:))
-            </p>
-            <div class = "progress">
-                Loading...
+    <div class="home-page-container">
+        <nav class="top-nav">
+            <a href = "./index.html">Logo</a>
+            <a href = "./search.html">Search</a>
+            <a href = "">Request Post</a>
+            <a href = "./quiz.html">Quiz</a>
+            <a href = "">About</a>
+        </nav>
+        <div class = "quiz-content">
+            <div class = "quiz-info">
+                <h2>
+                    Insect Orders Quiz!
+                </h2>
+                <p>
+                    Welcome to the Insect Orders Quiz! 
+                    In this quiz, you will be shown random pictures of insects
+                    and have to guess which taxonomical order they are in (i.e. Coleoptera, hymenoptera, etc).
+                    Have fun! (or die trying >:))
+                </p>
+                <div class = "progress">
+                    Loading...
+                </div>
+            </div>
+            <div class = "image-interactable">
+                <div class = "correct-marker"></div>
+                <button><</button>
+                <div class = "image-container">
+                    <img src="" alt="">
+                </div>
+                <button>></button>
+            </div>
+            <div class = "answer-container">
+                <form id = "order-guess" action="">
+                    <label for="order">
+                        The order of the insect in this photo is 
+                    </label>
+                    <input class = "text-input" type="text" placeholder ="insert order..." order = "order">
+                    <input class = "check-button" type="submit" value="Check">
+
+                </form>
+            </div>
+
+        </div>
+        <div class="top-ranked">
+            Recommended Posts
+            <div class = "scroll">
+                <!-- <div class = "post">
+                    <img src="./imgs/coleoptera1.jpg" alt="post">
+                    <div class = "overlay-text"><p>Author authora</p><p>Hymenopteraa</p></div>
+                </div>
+                <div class = "post">This is a Post</div>
+                <div class = "post">This is a Post</div>
+                <div class = "post">This is a Post</div>
+                <div class = "post">This is a Post</div>
+                <div class = "post">This is a Post</div> -->
             </div>
         </div>
-        <div class = "image-interactable">
-            <div class = "correct-marker"></div>
-            <button><</button>
-            <div class = "image-container">
-                <img src="" alt="">
-            </div>
-            <button>></button>
+        <div class = "footer">
+            FOOTER
         </div>
-        <div class = "answer-container">
-            <form id = "order-guess" action="">
-                <label for="order">
-                    The order of the insect in this photo is 
-                </label>
-                <input class = "text-input" type="text" placeholder ="insert order..." order = "order">
-                <input class = "check-button" type="submit" value="Check">
-
-            </form>
-        </div>
-
     </div>
 </body>
 </html>

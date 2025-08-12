@@ -17,13 +17,6 @@ div{
     justify-content: center;
     align-items: center;
 }
-.container{
-    flex: 1;
-    padding: 0 0 0 0;
-    justify-content: flex-start;
-    height: 100vh;
-    background-color: rgb(203, 180, 180);
-}
 .quiz-info{
     width: 100%;
     justify-content: space-between;
@@ -32,6 +25,7 @@ div{
     background-color: lightblue;
    
 }
+
 .quiz-info p{
     max-width: 800px;
 }
@@ -71,7 +65,7 @@ div{
     box-shadow: 5px 5px 10px rgba(0, 0, 0,0.2);
 }
 .image-container img{
-    height: 450px;
+    height: 400px;
 }
 .answer-container{
     padding: 20px;
@@ -118,12 +112,17 @@ div{
     height: 100%;
 }
 .search-content,
+.quiz-content,
 .content{
     width: 100%;
     margin:0;
     height: 100%;
     margin-top: 160px;
     justify-content: flex-start;
+}
+.quiz-content{
+    margin-top: 0;
+    width: 100%;
 }
 @media (max-width: 800px){
     .content{
