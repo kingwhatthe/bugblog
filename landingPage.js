@@ -1,4 +1,4 @@
-import { getOrderFromTax, getPostByID } from "./functions.js";
+import { getOrderFromTax, getPostByID, redirectToPostId } from "./functions.js";
 
 
 document.addEventListener("readystatechange", (event) => {
@@ -58,11 +58,18 @@ const initHomePage =() => {
         order = order.substring(0,26-authorLastName.length-3) + "...";
       } 
       rankedScrollContainer.innerHTML += 
-        `<div class = "post">
+        `<div id = "post_1${ranked[i].id}" class = "post">
             <img src="${ranked[i].picture_url}" alt="post">
             <div class = "overlay-text"><p>${authorLastName}</p><p>${order}</p></div>
         </div>`;
+
     }
+    document.querySelectorAll(".top-ranked .post").forEach((post, index) => {
+      post.addEventListener("click", () => {
+          redirectToPostId(ranked[index].id);
+      });
+    });
+
 
     //for recent posts:
     for(let i = 0; i < recents.length; i++){
@@ -74,11 +81,16 @@ const initHomePage =() => {
         order = order.substring(0,26-authorLastName.length-3) + "...";
       } 
       recentsScrollContainer.innerHTML += 
-        `<div class = "post">
+        `<div id = "post_2${recents[i].id}" class = "post">
             <img src="${recents[i].picture_url}" alt="post">
             <div class = "overlay-text"><p>${authorLastName}</p><p>${order}</p></div>
         </div>`;
     }
+    document.querySelectorAll(".recents .post").forEach((post, index) => {
+      post.addEventListener("click", () => {
+          redirectToPostId(recents[index].id);
+      });
+    });
 
 
   }

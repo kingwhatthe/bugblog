@@ -1,4 +1,4 @@
-import { getNumQuestions, getQuestionByID, getRandomImageId } from "./functions";
+import { getNumQuestions, getQuestionByID, getRandomImageId } from "./functions.js";
 
 
 //Checks if dom is loaded

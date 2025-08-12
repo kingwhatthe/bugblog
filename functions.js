@@ -1,3 +1,5 @@
+//functions.js
+
 
 export const getPostByID = (id) => {
   return new Promise((resolve, reject)=>{
@@ -34,6 +36,14 @@ export const getQuestionByID = (id) =>{
         });
     });
     
+}
+
+//redirects the page to a specific post id
+export const redirectToPostId = (id) => {
+    let url = new URL("http://localhost/BugBlog/post.html")
+    url.searchParams.set("id",id);
+    console.log(url);
+    window.location.href = url;
 }
 
 //Gets the number of questions in the quiz_questions table

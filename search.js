@@ -1,4 +1,4 @@
-import {getOrderFromTax} from "./functions.js";
+import {getOrderFromTax, redirectToPostId} from "./functions.js";
 
 const getPostsBySearch = (query, searchBy, sortBy) =>{
     return new Promise((resolve, reject)=>{
@@ -64,7 +64,7 @@ const searchPosts = async () => {
 
         //update dom with post data
         for (let i = 0; i<postData.length; i++){
-            posts.innerHTML = `<div class = "search-post">
+            posts.innerHTML += `<div id = "post_${postData[i].id}" class = "search-post">
                     <img src="${postData[i].picture_url}" alt="">
                     <div class ="search-post-desc">
                         <div class = "info">
@@ -79,11 +79,24 @@ const searchPosts = async () => {
                         </div>
                         <div class = "rank">${postData[i].rank}</div>
                     </div>
-                </div>`
+                </div>`;
+            console.log(posts);
         }
         if (!postData[0] || postData[0].length === 0){
             posts.innerHTML = "No Posts Found!";
         }
+        else{
+            //check if search items are clicked
+            for (let i = 0; i<postData.length; i++){
+                const post = posts.querySelector(`#post_${postData[i].id}`);
+                console.log(post);
+                post.addEventListener("click", (event) => {
+                    redirectToPostId(postData[i].id);
+                })
+            }
+        }
+
+        
         
     });
 
