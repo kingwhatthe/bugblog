@@ -15,7 +15,7 @@
 
     if(isset($_POST['id'])){
         $id = intval($_POST['id']);
-        $sql = "SELECT * FROM quiz_questions WHERE id = $id";
+        $sql = "SELECT * FROM post WHERE id = $id";
         $run = mysqli_query($conn, $sql);
 
         while($row = mysqli_fetch_array($run)){
@@ -24,7 +24,7 @@
         }
     }
     else {
-        $sql = "SELECT COUNT(*) FROM quiz_questions";
+        $sql = "SELECT COUNT(*) FROM post";
         $run = mysqli_query($conn,$sql);
         if ($run){
             $row = mysqli_fetch_array($run);

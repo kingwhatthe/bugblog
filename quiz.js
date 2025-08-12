@@ -1,4 +1,4 @@
-import { getNumQuestions, getQuestionByID, getRandomImageId } from "./functions.js";
+import { getNumQuestions, getQuestionByID, getRandomImageId, getOrderFromTax } from "./functions.js";
 
 
 //Checks if dom is loaded
@@ -46,7 +46,7 @@ const initQuiz=()=>{
         //Display the first question
         //updates DOM
         const displayImage = document.querySelector(".image-container");
-        displayImage.innerHTML = `<img src="${questions[questionNumber].url}">`
+        displayImage.innerHTML = `<img src="${questions[questionNumber].picture_url}">`
 
         //Gets guess from DOM
         const orderGuess = document.getElementById("order-guess");
@@ -62,7 +62,8 @@ const initQuiz=()=>{
             if (input.value !== ""){
                 //filter input
                 const answer = input.value.toLowerCase();
-                if(answer === questions[questionNumber].order_name){
+                const order = getOrderFromTax(questions[questionNumber].taxonomical_info).toLowerCase();
+                if(answer === order){
                     questions[questionNumber].correct = "true";
                     correctMarker.textContent = "Correct!";
                     correctMarker.style.backgroundColor = "rgba(0, 255, 26, 1)"
@@ -73,7 +74,7 @@ const initQuiz=()=>{
                     correctMarker.style.backgroundColor = "rgba(255, 0, 0, 1)"
                 }
                 submitButton.disabled = true;
-                console.log(questions[questionNumber].order_name);
+                console.log(order);
             }
             
             
@@ -81,7 +82,7 @@ const initQuiz=()=>{
 
         const updateDom = () => {
             //updates DOM
-            displayImage.innerHTML = `<img src="${questions[questionNumber].url}">`;
+            displayImage.innerHTML = `<img src="${questions[questionNumber].picture_url}">`;
             questionProgressContainer.textContent = `Question ${questionNumber+1}/${questions.length}`;
             questions[questionNumber].correct !== "none" ?
             submitButton.disabled = true : submitButton.disabled = false;
