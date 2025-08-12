@@ -1,4 +1,4 @@
-import { getNumQuestions, getQuestionByID, getRandomImageId, getOrderFromTax } from "./functions.js";
+import { getNumQuestions, getQuestionByID, getRandomImageId, getOrderFromTax, redirectToPostId } from "./functions.js";
 
 
 //Checks if dom is loaded

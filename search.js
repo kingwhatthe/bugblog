@@ -64,6 +64,7 @@ const searchPosts = async () => {
 
         //update dom with post data
         for (let i = 0; i<postData.length; i++){
+            posts.innerHTML = "";
             posts.innerHTML += `<div id = "post_${postData[i].id}" class = "search-post">
                     <img src="${postData[i].picture_url}" alt="">
                     <div class ="search-post-desc">
