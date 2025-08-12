@@ -26,7 +26,7 @@
         }
     }
     else{
-        $sqli = "SELECT * FROM post ORDER BY rank ASC LIMIT 10";
+        $sqli = "SELECT * FROM post ORDER BY CASE WHEN rank = 'S' THEN 0 ELSE 1 END, rank ASC LIMIT 10";
         $run = mysqli_query($conn, $sqli);
 
         if($run){
